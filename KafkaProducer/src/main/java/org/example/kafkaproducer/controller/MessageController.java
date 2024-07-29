@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/send")
 public class MessageController {
     public final MessageProducer producer;
-    private final String topic = "test-topic";
 
     @PostMapping
     public void sendMessage(@RequestBody TestMessage message) {
+        String topic = "test-topic";
         producer.sendMessage(topic, message);
     }
 }
